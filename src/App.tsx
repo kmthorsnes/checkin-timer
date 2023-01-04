@@ -26,12 +26,13 @@ const CheckInComponent: React.FC<Props> = (props) => {
     setCheckInTime(currentTime);
     localStorage.setItem('checkInTime', currentTime.toISOString());
 
-    // Beregn differanse i millisekunder mellom nåværende tidspunkt og 7 timer og 35 minutter fra nå
-    const difference7h35m = (7 * 60 + 35) * 60 * 1000;
+    // Beregn differanse i timer, minutter og sekunder mellom nåværende tidspunkt og 7 timer og 35 minutter fra nå
+    const difference7h35m = currentTime.getTime() - 7 * 60 * 60 * 1000 - 35 * 60 * 1000;
     setDifference7h35m(difference7h35m);
 
-    // Beregn differanse i millisekunder mellom nåværende tidspunkt og 8 timer fra nå
-    const difference8h = 8 * 60 * 60 * 1000;
+    // Beregn differanse i timer, minutter og sekunder mellom nåværende tidspunkt og 8 timer fra nå
+
+    const difference8h = currentTime.getTime() - 8 * 60 * 60 * 1000;
     setDifference8h(difference8h);
   };
 
